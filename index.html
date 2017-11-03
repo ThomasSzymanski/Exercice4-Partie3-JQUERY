@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="jquery-3.2.1.js"></script>
+  <title>Exercice 4</title>
+</head>
+<body>
+ <form>
+    <button type="button" name="button" id="heightRectangle">Augmente la hauteur du rectangle !</button>
+    <button type="button" name="button" id="greenRectangle">Met le rectangle en vert !</button>
+    <button type="button" name="button" id="resetColor">Remet la couleur de base !</button>
+    <button type="button" name="button" id="removeRectangle">Au-Revoir le rectangle !</button>
+    <button type="button" name="button" id="resetRectangle">Re-Bonjour le rectangle !</button>
+  </form>
+  <div id="rectangle" style="height:10px ; width:200px ; border:solid 2px red ; margin-top:100px ; margin-left:auto ; margin-right:auto";></div>
+  <script>
+    $('#heightRectangle').click( function(){
+      $('#rectangle').height($('#rectangle').height()+10);
+      if($('#rectangle').height() >= 100){
+        $('#rectangle').height($('#rectangle').height()-90);
+      }
+    });
+    $('#greenRectangle').click( function(){
+      $('#rectangle').css('border', 'solid 2px green');
+    });
+    $('#resetColor').click( function(){
+      $('#rectangle').css('border', 'solid 2px red');
+    });
+    $('#removeRectangle').click( function(){
+      $('#rectangle').hide();
+    });
+    $('#resetRectangle').click( function(){
+      $('#rectangle').show();
+    });  
+  </script> 
+</body>
+</html>
