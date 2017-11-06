@@ -3,36 +3,49 @@
 <head>
   <meta charset="utf-8">
   <script src="jquery-3.2.1.js"></script>
+  <link rel="stylesheet" href="style.css">
   <title>Exercice 4</title>
 </head>
 <body>
- <form>
-    <button type="button" name="button" id="heightRectangle">Augmente la hauteur du rectangle !</button>
-    <button type="button" name="button" id="greenRectangle">Met le rectangle en vert !</button>
-    <button type="button" name="button" id="resetColor">Remet la couleur de base !</button>
-    <button type="button" name="button" id="removeRectangle">Au-Revoir le rectangle !</button>
-    <button type="button" name="button" id="resetRectangle">Re-Bonjour le rectangle !</button>
+  <form>
+    <div id="rectangle"></div>
+    <button type="button" name="button" id="dimensions">Dimensions !</button>
+    <button type="button" name="button" id="green">Vert !</button>
+    <button type="button" name="button" id="resetColor">Reset la couleur !</button>
+    <button type="button" name="button" id="hide">Cacher !</button>
+    <button type="button" name="button" id="show">Voir !</button>
   </form>
-  <div id="rectangle" style="height:10px ; width:200px ; border:solid 2px red ; margin-top:100px ; margin-left:auto ; margin-right:auto";></div>
   <script>
-    $('#heightRectangle').click( function(){
-      $('#rectangle').height($('#rectangle').height()+10);
-      if($('#rectangle').height() >= 100){
-        $('#rectangle').height($('#rectangle').height()-90);
-      }
-    });
-    $('#greenRectangle').click( function(){
-      $('#rectangle').css('border', 'solid 2px green');
-    });
-    $('#resetColor').click( function(){
-      $('#rectangle').css('border', 'solid 2px red');
-    });
-    $('#removeRectangle').click( function(){
+  //Déclaration de la variable pour définir la hauteur de base
+  var hauteur = 10;
+  //Le bouton de rédimensionement
+  $('#dimensions').click(function(){
+    //Vérification de la hauteur
+    if(hauteur <= 100){
+      //Augementation de la hauteur de 10px si le rectangle fais 100pixels de hauteur ou moins
+      hauteur += 10;
+    }else{
+      //Remise à 10pixels la hauteur du réctangle si il dépasse 100pixels de hauteur
+      hauteur = 10;
+    }
+    $('#rectangle').css('height',hauteur+'px');
+  });
+  //Changer la couleur du rectangle en vert
+  $('#green').click(function(){
+    $('#rectangle').css('border','solid green 2px');
+  });
+  //Remettre le rectangle en noir
+  $('#resetColor').click(function(){
+    $('#rectangle').css('border','solid black 2px');
+  });
+  //Cacher le rectangle
+  $('#hide').click(function(){
       $('#rectangle').hide();
-    });
-    $('#resetRectangle').click( function(){
+  });
+  //Afficher le rectangle
+  $('#show').click(function(){
       $('#rectangle').show();
-    });  
-  </script> 
+  });
+  </script>
 </body>
 </html>
